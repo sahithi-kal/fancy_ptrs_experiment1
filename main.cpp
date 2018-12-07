@@ -27,4 +27,7 @@ int main() {
 
   l1.print_list();
   l2.print_list();
+
+  free(r1);
+  free(r2);
 }
