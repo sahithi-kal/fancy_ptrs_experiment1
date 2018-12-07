@@ -20,18 +20,15 @@ struct node {
 class LinkedList{
     
 private:
+    node* alloc_region;
     node *head;
     int size;
     int max_size;
     
 public:
-    
-    LinkedList(int max);
+    LinkedList(int max, node* _alloc_region);
     bool add_node(int val);
     void print_list();
-    
-    
 };
-
 
 #endif /* LINKEDLIST_H */

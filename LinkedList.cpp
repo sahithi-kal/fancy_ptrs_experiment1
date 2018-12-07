@@ -8,21 +8,21 @@
 
 #include "LinkedList.h"
 
-LinkedList::LinkedList(int max){
+LinkedList::LinkedList(int max, node* _alloc_region){
+    alloc_region = _alloc_region;
     head = NULL;
     max_size=max;
 }
 
 bool LinkedList::add_node(int val){
-    
     if (size + 1 > max_size){
         return false;
     }
     else {
-        node *temp = new node;
+        node *temp = alloc_region + (size * sizeof(node));
         temp->value = val;
         temp->next = NULL;
-        
+
         if (head == NULL){
             head = temp;
         }
@@ -38,7 +38,6 @@ bool LinkedList::add_node(int val){
         size +=1;
         return true;
     }
-    
 }
 
 void LinkedList::print_list(){
